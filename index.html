@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>John Doe - Photographer and Web Designer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #444;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #000;
+            color: white;
+        }
+
+       
+
+
+        header img {
+            width: 100%;
+            max-width: 992px;
+        }
+
+        .content {
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Hide the radio buttons but keep them functional */
+        .carousel input[type="radio"] {
+            display: none;
+        }
+
+        /* Add styles for previous and next buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 16px;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 100;
+        }
+
+        .carousel-button-left {
+            left: 10px;
+        }
+
+        .carousel-button-right {
+            right: 10px;
+        }
+
+        /* Slideshow transitions */
+        .carousel-images {
+            width: 400%; /* 4 images */
+        }
+
+        .carousel input[type="radio"]:nth-child(1):checked ~ .carousel-images {
+            transform: translateX(0%);
+        }
+
+        .carousel input[type="radio"]:nth-child(2):checked ~ .carousel-images {
+            transform: translateX(-100%);
+        }
+
+        .carousel input[type="radio"]:nth-child(3):checked ~ .carousel-images {
+            transform: translateX(-200%);
+        }
+
+        .carousel input[type="radio"]:nth-child(4):checked ~ .carousel-images {
+            transform: translateX(-300%);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            background-color: #444;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#photos">PHOTOS</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Home Section -->
+        <header id="home">
+            <h1>I'm M.Alfred Apolinario.</h1>
+            <p>Photographer and Web Designer.</p>
+            <img src="profile.jpg" alt="profile">
+             
+            <div id="particles-js"></div>
+        </header>
+
+        <!-- About Section -->
+        <div id="about" class="content">
+            <h2>My Name</h2>
+            <hr style="width: 200px; margin: auto;">
+            <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <!-- Photos Section (Carousel) -->
+        <div id="photos" class="content">
+            <h2>My Photos</h2>
+            <hr style="width: 100px; margin: auto;">
+
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="photo.jpg" alt="Image 1">
+                    <img src="photo2.jpg" alt="Image 2">
+                    <img src="photo3.jpg" alt="Image 3">
+                    <img src="photo4.jpg" alt="Image 4">
+                </div>
+
+                <!-- Radio Buttons for Navigation -->
+                <input type="radio" id="radio1" name="carousel" checked>
+                <input type="radio" id="radio2" name="carousel">
+                <input type="radio" id="radio3" name="carousel">
+                <input type="radio" id="radio4" name="carousel">
+
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-button carousel-button-left">&#10094;</div>
+                <div class="carousel-button carousel-button-right">&#10095;</div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="content">
+            <h2>Contact Me</h2>
+            <hr style="width: 200px; margin: auto;">
+            <p>If you'd like to get in touch, please fill out the form below:</p>
+            <form action="https://formspree.io/f/your-email" method="POST" class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container"></div>
+
+    
+
+</body>
+</html>
